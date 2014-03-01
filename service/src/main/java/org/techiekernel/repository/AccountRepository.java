@@ -7,11 +7,11 @@ import org.techiekernel.model.Account;
 public interface AccountRepository {
 	List<Account> getAccounts();
 
-	Account getAccount(Long accountId);
+	Account getAccount(Long accountId) throws Exception;
 
 	Long createAccount(Account account);
 
-	Account editAccount(Account account);
+	Account editAccount(Account account) throws Exception;
 
-	boolean deleteAccount(Long accountId);
+	boolean deleteAccount(Long accountId) throws Exception;
 }

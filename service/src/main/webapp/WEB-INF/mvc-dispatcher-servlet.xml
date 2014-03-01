@@ -12,4 +12,5 @@
 	<mvc:annotation-driven />
 	<context:component-scan base-package="org.techiekernel.service" />
 	<context:component-scan base-package="org.techiekernel.repository" />
+	<context:component-scan base-package="org.techiekernel.controller" />
 </beans>

@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.techiekernel.exception.AccountNotFoundException;
 import org.techiekernel.model.Account;
 
 @Repository
@@ -22,17 +23,17 @@ public class InMemoryAccountRepository implements AccountRepository {
 	}
 
 	@Override
-	public List<Account> getAccounts() {
+	public List<Account> getAccounts(){
 		return accountRepository;
 	}
 
 	@Override
-	public Account getAccount(Long accountId) {
+	public Account getAccount(Long accountId) throws Exception{
 		for (Account account : accountRepository) {
 			if(account.getAccountId().equals(accountId))
 				return account;
 		}
-		return null;
+		throw new AccountNotFoundException(accountId + " not found in the repository ");
 	}
 
 	@Override
@@ -44,7 +45,7 @@ public class InMemoryAccountRepository implements AccountRepository {
 	}
 
 	@Override
-	public Account editAccount(Account account) {
+	public Account editAccount(Account account) throws Exception{
 		for (int i = 0; i < accountRepository.size(); i++) {
 			Account oldAccount = accountRepository.get(i);
 			if(account.getAccountId().equals(oldAccount.getAccountId())){
@@ -52,11 +53,11 @@ public class InMemoryAccountRepository implements AccountRepository {
 				return account;
 			}
 		}
-		return null;
+		throw new AccountNotFoundException(account.getAccountNo() + " not found in the repository ");
 	}
 
 	@Override
-	public boolean deleteAccount(Long accountId) {
+	public boolean deleteAccount(Long accountId) throws Exception{
 		Iterator<Account> accountIterator = accountRepository.iterator();
 		while(accountIterator.hasNext()){
 			Account account = accountIterator.next();
@@ -65,7 +66,7 @@ public class InMemoryAccountRepository implements AccountRepository {
 				return true;
 			}
 		}
-		return false;
+		throw new AccountNotFoundException(accountId + " not found in the repository ");
 	}
 
 }

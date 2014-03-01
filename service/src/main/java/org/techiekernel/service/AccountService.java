@@ -22,7 +22,7 @@ public class AccountService {
 
 	@RequestMapping(value = "/{accountId}", method = RequestMethod.GET, headers = "Accept=application/json", produces = { "application/json" })
 	@ResponseBody
-	public Account getAccount(@PathVariable Long accountId) {
+	public Account getAccount(@PathVariable Long accountId) throws Exception{
 		return accountRepository.getAccount(accountId);
 	}
 
@@ -35,13 +35,13 @@ public class AccountService {
 	@RequestMapping(value = "/{accountId}", method = RequestMethod.PUT, headers = "Accept=application/json", produces = { "application/json" }, consumes = { "application/json" })
 	@ResponseBody
 	public Account editAccount(@RequestBody Account account,
-			@PathVariable Long accountId) {
+			@PathVariable Long accountId) throws Exception{
 		return accountRepository.editAccount(account);
 	}
 
 	@RequestMapping(value = "/{accountId}", method = RequestMethod.DELETE, headers = "Accept=application/json", produces = { "application/json" })
 	@ResponseBody
-	public boolean deleteAccount(@PathVariable Long accountId) {
+	public boolean deleteAccount(@PathVariable Long accountId) throws Exception{
 		return accountRepository.deleteAccount(accountId);
 	}
 
