@@ -37,4 +37,5 @@ Pull requests are welcome.
 ## License
 
 ## Release
-
+* One servie has been created called the account.
+* ControllerAdvice has been implemented to handle application exceptions and hook that up with HTTP status codes.
