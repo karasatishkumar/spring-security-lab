@@ -32,10 +32,10 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
 		http.formLogin()
-				  .loginPage("/crm/signin.html")
+				  .loginPage("/techiekernel/signin.html")
 				  .loginProcessingUrl("/signin")
-				  .defaultSuccessUrl("/crm/welcome.html")
-				  .failureUrl("/crm/signin.html?error=true")
+				  .defaultSuccessUrl("/techiekernel/welcome.html")
+				  .failureUrl("/techiekernel/signin.html?error=true")
 				  .usernameParameter("username")
 				  .passwordParameter("password")
 				  .permitAll(true);
@@ -53,7 +53,8 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// nb: the H2 administration console should *not* be left exposed.
 		// comment out the mapping path below so that it requires an  
                 // authentication to see it.
-		String[] filesToLetThroughUnAuthorized = { H2EmbeddedDatbaseConsoleInitializer.H2_DATABASE_CONSOLE_MAPPING, "/favicon.ico" };
+		//String[] filesToLetThroughUnAuthorized = { H2EmbeddedDatbaseConsoleInitializer.H2_DATABASE_CONSOLE_MAPPING, "/favicon.ico" };
+		String[] filesToLetThroughUnAuthorized = {"/favicon.ico" };
 
 		http.authorizeRequests()
 				  .antMatchers(filesToLetThroughUnAuthorized).permitAll()
