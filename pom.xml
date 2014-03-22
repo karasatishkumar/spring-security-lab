@@ -19,6 +19,7 @@
 	<modules>
 		<module>auth</module>
 		<module>service</module>
+		<module>web-example</module>
 	</modules>
 
 	<developers>
