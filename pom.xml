@@ -20,6 +20,7 @@
 		<module>auth</module>
 		<module>service</module>
 		<module>web-example</module>
+		<module>web-login-logout</module>
 	</modules>
 
 	<developers>
