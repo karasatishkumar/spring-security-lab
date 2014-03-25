@@ -12,6 +12,6 @@
     <br />
     Thank you for your visit!
     <br /><br />
-    <a href="<c:url value='/'/>">Home</a>
+    <a href="<c:url value='/login'/>">login</a>
 </body>
 </html>

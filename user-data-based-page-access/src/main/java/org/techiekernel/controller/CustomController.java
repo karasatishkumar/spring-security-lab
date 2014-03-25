@@ -23,9 +23,17 @@ public class CustomController {
 	private CustomAuthenticationProvider pap;
 
 	@RequestMapping(value = "/login")
-	public ModelAndView slash() {
+	public ModelAndView login() {
 		System.out.println("coming to login page.");
 		ModelAndView result = new ModelAndView("login");
+
+		return result;
+	}
+	
+	@RequestMapping(value = "/logout")
+	public ModelAndView logout() {
+		System.out.println("coming to logout page.");
+		ModelAndView result = new ModelAndView("logout");
 
 		return result;
 	}
@@ -57,7 +65,7 @@ public class CustomController {
 
 		this.pudsim.deleteUser(Long.parseLong(id));
 
-		return "redirect:/";
+		return "redirect:/index";
 
 	}
 

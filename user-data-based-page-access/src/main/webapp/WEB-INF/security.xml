@@ -22,10 +22,10 @@
 		<access-denied-handler error-page="/accessDenied.jsp" />
 
 		<!-- Anticipating on login logout issues -->
-		<logout logout-url="/" delete-cookies="JSESSIONID" />
+		<logout logout-url="/logout" delete-cookies="JSESSIONID" />
 
-		<session-management invalid-session-url="/invalidSession.jsp"
-			session-authentication-error-url="/invalidSession.jsp"
+		<session-management invalid-session-url="/invalidSession"
+			session-authentication-error-url="/invalidSession"
 			session-fixation-protection="newSession">
 			<concurrency-control max-sessions="1"
 				error-if-maximum-exceeded="true" />

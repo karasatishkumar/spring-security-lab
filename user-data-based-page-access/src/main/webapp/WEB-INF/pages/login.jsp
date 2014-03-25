@@ -21,6 +21,6 @@
         <input type="submit" value="Submit" />
     </form>
     <br /><br />
-    <a href="<c:url value='/'/>">Home</a>
+    <a href="<c:url value='/index'/>">Home</a>
 </body>
 </html>

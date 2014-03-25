@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>Spring In-Memory Security - CRUD Users</h1>
+    <a href="<c:url value='/logout'/>">Logout</a>	
     <br />
     <h2>Registered Users</h2>
     <br />

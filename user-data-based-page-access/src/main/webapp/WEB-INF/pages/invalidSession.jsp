@@ -12,7 +12,7 @@
     Your session may have timed out or you may have tried to create too many
     sessions with multiple logins!
     <br /><br />
-    <a href="<c:url value='/'/>">Home</a>
+    <a href="<c:url value='/index'/>">Home</a>
     <c:if test="${noUser}">
         &bull; <a href="<c:url value='/login'/>">Login</a> 
     </c:if>

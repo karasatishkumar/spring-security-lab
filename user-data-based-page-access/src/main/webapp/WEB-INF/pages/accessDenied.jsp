@@ -11,6 +11,6 @@
     <h1>Access Denied</h1>
     You are not allowed to access this page!
     <br /><br />
-    <a href="<c:url value='/'/>">Home</a>
+    <a href="<c:url value='/login'/>">Login</a>
 </body>
 </html>
