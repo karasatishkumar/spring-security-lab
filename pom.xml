@@ -21,6 +21,7 @@
 		<module>service</module>
 		<module>web-example</module>
 		<module>web-login-logout</module>
+		<module>user-data-based-page-access</module>
 	</modules>
 
 	<developers>
