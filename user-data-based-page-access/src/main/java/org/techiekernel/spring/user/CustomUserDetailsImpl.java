@@ -44,7 +44,7 @@ public class CustomUserDetailsImpl implements CustomUserDetails {
 	public static Collection<? extends GrantedAuthority> getEmptyRoles() {
 
 		ArrayList<GrantedAuthority> result = new ArrayList<GrantedAuthority>();
-		result.add(new SimpleGrantedAuthority("ROLE_ANONYMOUS"));
+		result.add(new SimpleGrantedAuthority("ROLE_USER"));
 
 		return result;
 
@@ -120,6 +120,16 @@ public class CustomUserDetailsImpl implements CustomUserDetails {
 	public void setAuthorities(
 			Collection<? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomUserDetailsImpl [id=" + id + ", username=" + username
+				+ ", password=" + password + ", authorities=" + authorities
+				+ ", accountExpired=" + accountExpired + ", accountLocked="
+				+ accountLocked + ", credentialsExpired=" + credentialsExpired
+				+ ", enabled=" + enabled + ", toString()=" + super.toString()
+				+ "]";
 	}
 
 }

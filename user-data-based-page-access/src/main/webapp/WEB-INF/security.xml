@@ -10,30 +10,30 @@
 
 	<!-- No security on css, js, images, etc... folder -->
 	<http pattern="/resources/**" security="none" />
-	<http pattern="/login" security="none" />
-	<http pattern="/logout" security="none" />
+	<!-- <http pattern="/login" security="none" />
+	<http pattern="/logout" security="none" /> -->
 
-	<http>
+	<http auto-config="true">
 
 		<http-basic />
 		
-		<intercept-url pattern="/index" access="ROLE_ANONYMOUS" />
+		<intercept-url pattern="/index*" access="ROLE_USER" />
 
-		<form-login login-page="/login" default-target-url="/index" />
+		<form-login login-page="/login" default-target-url="/index" authentication-failure-url="/login" />
 
-		<anonymous enabled="false" />
+		<anonymous enabled="true" />
+
+		<!-- Anticipating on login logout issues -->
+		<logout logout-success-url="/logout" delete-cookies="JSESSIONID" />
 
 		<access-denied-handler error-page="/accessDenied" />
 
-		<!-- Anticipating on login logout issues -->
-		<logout logout-url="/logout" delete-cookies="JSESSIONID" />
-
-		<session-management invalid-session-url="/invalidSession"
+		<!-- <session-management invalid-session-url="/invalidSession"
 			session-authentication-error-url="/invalidSession"
 			session-fixation-protection="newSession">
 			<concurrency-control max-sessions="1"
 				error-if-maximum-exceeded="true" />
-		</session-management>
+		</session-management> -->
 
 	</http>
 
@@ -41,11 +41,8 @@
 
 	<authentication-manager alias="authenticationManager"
 		erase-credentials="true">
-		<authentication-provider user-service-ref="pudsim"/>
+		<authentication-provider ref="pap"/>
 	</authentication-manager>
 
-	<beans:bean id="myAP"
-		class="org.techiekernel.spring.user.CustomUserDetailsInMemoryRepository">
-	</beans:bean>
 
 </beans:beans>

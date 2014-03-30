@@ -41,6 +41,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         
             user = pudsim.loadUserByUsername(principal);
             
+            System.out.println("User : " + user);
+            
         } catch(UsernameNotFoundException ex) {
             
              throw new BadCredentialsException(
