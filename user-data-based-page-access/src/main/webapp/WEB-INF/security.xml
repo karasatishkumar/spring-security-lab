@@ -25,7 +25,8 @@
 		<anonymous enabled="true" />
 
 		<!-- Anticipating on login logout issues -->
-		<logout logout-success-url="/logout" delete-cookies="JSESSIONID" />
+		<logout logout-success-url="/logout" invalidate-session="false"
+			delete-cookies="JSESSIONID" />
 
 		<access-denied-handler error-page="/accessDenied" />
 
@@ -33,11 +34,9 @@
 			session-fixation-protection="newSession"> <concurrency-control max-sessions="1" 
 			error-if-maximum-exceeded="true" /> </session-management> -->
 
-		<session-management invalid-session-url="/invalidSession"
-			session-authentication-error-url="/invalidSession">
+		<session-management>
 			<concurrency-control max-sessions="1"
-				expired-url="/invalidSession"
-				error-if-maximum-exceeded="false" />
+				expired-url="/invalidSession" error-if-maximum-exceeded="false" />
 		</session-management>
 
 	</http>
