@@ -10,16 +10,17 @@
 
 	<!-- No security on css, js, images, etc... folder -->
 	<http pattern="/resources/**" security="none" />
-	<!-- <http pattern="/login" security="none" />
-	<http pattern="/logout" security="none" /> -->
+	<!-- <http pattern="/login" security="none" /> <http pattern="/logout" security="none" 
+		/> -->
 
 	<http auto-config="true">
 
 		<http-basic />
-		
+
 		<intercept-url pattern="/index*" access="ROLE_USER" />
 
-		<form-login login-page="/login" default-target-url="/index" authentication-failure-url="/login" />
+		<form-login login-page="/login" default-target-url="/index"
+			authentication-failure-url="/login" />
 
 		<anonymous enabled="true" />
 
@@ -28,12 +29,16 @@
 
 		<access-denied-handler error-page="/accessDenied" />
 
-		<!-- <session-management invalid-session-url="/invalidSession"
-			session-authentication-error-url="/invalidSession"
-			session-fixation-protection="newSession">
+		<!-- <session-management invalid-session-url="/invalidSession" session-authentication-error-url="/invalidSession" 
+			session-fixation-protection="newSession"> <concurrency-control max-sessions="1" 
+			error-if-maximum-exceeded="true" /> </session-management> -->
+
+		<session-management invalid-session-url="/invalidSession"
+			session-authentication-error-url="/invalidSession">
 			<concurrency-control max-sessions="1"
-				error-if-maximum-exceeded="true" />
-		</session-management> -->
+				expired-url="/invalidSession"
+				error-if-maximum-exceeded="false" />
+		</session-management>
 
 	</http>
 
@@ -41,7 +46,7 @@
 
 	<authentication-manager alias="authenticationManager"
 		erase-credentials="true">
-		<authentication-provider ref="pap"/>
+		<authentication-provider ref="pap" />
 	</authentication-manager>
 
 
