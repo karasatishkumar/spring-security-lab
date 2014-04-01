@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	 <parent>
-                <groupId>org.techiekernel</groupId>
-                <artifactId>spring-security-lab</artifactId>
-                <version>${app.version}</version>
-                <relativePath>../</relativePath>
-        </parent>
+	<parent>
+		<groupId>org.techiekernel</groupId>
+		<artifactId>spring-security-lab</artifactId>
+		<version>${app.version}</version>
+		<relativePath>../</relativePath>
+	</parent>
 
 	<groupId>org.techiekernel</groupId>
 	<artifactId>user-data-based-page-access</artifactId>
@@ -63,35 +63,49 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-		</dependency>		
-        
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.9</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
-                <plugins>
-                        <plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-war-plugin</artifactId>
-                                <version>2.1.1</version>
-                        </plugin>
-                        <plugin>
-                                <artifactId>maven-compiler-plugin</artifactId>
-                                <configuration>
-                                        <source>${jdk.version}</source>
-                                        <target>${jdk.version}</target>
-                                </configuration>
-                        </plugin>
-                        <plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-war-plugin</artifactId>
-                                <version>2.3</version>
-                                <configuration>
-                                        <outputDirectory>${tomcat.location}</outputDirectory>
-                                </configuration>
-                        </plugin>
-                </plugins>
-                <finalName>user-data-based-page-access</finalName>
-        </build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<outputDirectory>${tomcat.location}</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>user-data-based-page-access</finalName>
+	</build>
 
 
 </project>
